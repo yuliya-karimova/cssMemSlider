@@ -9,17 +9,10 @@
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-family: "Roboto", sans-serif;
     font-size: 20px;
     font-weight: 300;
     color: #000000;
-    border: 3px solid #000000;
-    background-color: #ffc95b;
 }
 
 html {
@@ -33,13 +26,23 @@ html {
     left: 0;
     height: 8vh;
     width: 100%;
-    background: url('img/background-top.png') top / cover no-repeat content-box;
+    background: url('img/background-top.png') top / cover no-repeat;
     border: 3px solid #000000;
     border-bottom: 0;
 }
 
 .main {
-    width: 40%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #000000;
+    background-color: #ffc95b;
+}
+
+.slider {
+    width: 45%;
     z-index: 1;
 }
 
@@ -71,7 +74,7 @@ html {
     align-items: center;
     width: 100%;
     padding: 30px 0;
-    gap: 30px;
+    gap: 40px;
     background-color: #ffc95b;
 }
 
@@ -107,6 +110,17 @@ html {
     transition: 0.2s;
 }
 
+.table {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 17rem;
+    height: 17rem;
+    background: url('img/table.png') bottom left / contain no-repeat;
+    border-bottom: 3px solid #000000;
+    border-left: 3px solid #000000;
+}
+
 .dog {
     position: fixed;
     bottom: 0;
@@ -116,37 +130,54 @@ html {
     justify-content: center;
     width: 17rem;
     height: 17rem;
-    background: url(img/background-down.png) bottom right / contain no-repeat;
+    background: url(img/dog.png) bottom right / contain no-repeat;
+    border-bottom: 3px solid #000000;
+    border-right: 3px solid #000000;
 }
 
 .eye {
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
 }
 
 .eye:first-child {
-    top: 16px;
-    left: 46px;
+    top: 1rem;
+    left: 2.9rem;
 }
 
 .eye:last-child {
-    top: 25px;
-    left: 41px;
+    top: 1.6rem;
+    left: 2.6rem;
 }
 
-.eye.animate {
-    transition: all 100ms;
-}
-  
 .eye:after {
     content: " ";
     top: 0;
     left: 0;
-    position: absolute;
-    width: 30px;
-    height: 30px;
+    position: relative;
+    display: block;
+    width: 1.8rem;
+    height: 1.8rem;
     background: #171312;
     border-radius: 50%;
+}
+
+@media (max-width: 1280px) {
+    html {
+        font-size: 12px;
+    }
+
+    .slider {
+        width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .slider-controls-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 15px;
+    }
 }
