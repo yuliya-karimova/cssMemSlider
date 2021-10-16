@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: #000000;
+    border: 3px solid #000000;
+    background-color: #ffc95b;
+}
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 8vh;
+    width: 100%;
+    background: url('img/background-top.png') top / cover no-repeat content-box;
+    border: 3px solid #000000;
+    border-bottom: 0;
+}
+
+.main {
+    width: 40%;
+    z-index: 1;
+}
+
+.slider-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.slider-inner-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 700%;
+    height: 100%;
+    transition: all 0.5s;
+}
+
+.slide {
+    display: block;
+    width: calc(100% / 7);
+    height: 100%;
+}
+
+.slider-controls-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 30px 0;
+    gap: 30px;
+    background-color: #ffc95b;
+}
+
+.dots-container {
+    display: flex;
+}
+
+.dots-container > .dot {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pointer {
+    width: 20px;
+    height: 20px;
+    border: 3px solid;
+    border-color: #000000;
+    border-radius: 50%;
+}
+
+.dot.active .pointer{
+    background-color: #c54123;
+    border-color: #c54123;
+    transition: all 0.2s;
+}
+
+.dot:hover .pointer {
+    border-color: #c54123;
+    transition: 0.2s;
+}
+
+.dog {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 17rem;
+    height: 17rem;
+    background: url(img/background-down.png) bottom right / contain no-repeat;
+}
+
+.eye {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.eye:first-child {
+    top: 16px;
+    left: 46px;
+}
+
+.eye:last-child {
+    top: 25px;
+    left: 41px;
+}
+
+.eye.animate {
+    transition: all 100ms;
+}
+  
+.eye:after {
+    content: " ";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #171312;
+    border-radius: 50%;
+}
