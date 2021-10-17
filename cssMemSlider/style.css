@@ -296,14 +296,14 @@ input {
 
 @media (max-width: 420px) {
     html {
-        font-size: 0.6em;
+        font-size: 0.7em;
     }
 
     .top {
         background-size: 300% auto;
     }
 
-    body {
-        font-size: 1.6em;
+    .slider-bottom-container {
+        height: 14rem;
     }
 }
