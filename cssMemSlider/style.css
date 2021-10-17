@@ -287,6 +287,7 @@ input {
     }
 
     .top {
+        height: 7rem;
         background-size: 150% auto;
     }
     
