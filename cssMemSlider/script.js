@@ -1,20 +1,23 @@
-const slidesList = document.querySelector('.slider-inner-container');
+const imgList = document.querySelector('.slider-inner-container');
+const textList = document.querySelector('.text-inner-container');
 const dots = document.querySelectorAll('.dot');
 const body = document.querySelector('body');
 let eyes = document.querySelectorAll('.eye');
 
-let i = 0;
+let index = 0;
 
 function changeDot() {
     dots.forEach(dot => {
         dot.classList.remove('active');
     });
-    dots[i].classList.add('active');
+    dots[index].classList.add('active');
 };
 
 for (let i = 0; i < dots.length; i++) {
     dots[i].addEventListener('click', () => {
-        slidesList.style.left = - 100 * i + "%";
+        index = i;
+        imgList.style.left = - 100 * i + "%";
+        textList.style.left = - 100 * i + "%";
         changeDot();
     })
 }
@@ -24,7 +27,7 @@ body.addEventListener('mousemove', function(event) {
         let x = (eye.offsetLeft) + (eye.offsetWidth / 2);
         let y = (eye.offsetTop) + (eye.offsetHeight / 2);
         let rad = Math.atan2(event.pageX - x, event.pageY - y);
-        let rot = (rad * (180 / Math.PI) * -1) + 90;
-        eye.style.transform = 'rotate(' + -rot + 'deg)';
+        let rot = (rad * (180 / Math.PI) * -1) - 180;
+        eye.style.transform = 'rotate(' + rot + 'deg)';
     });
 });
