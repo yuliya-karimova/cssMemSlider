@@ -273,6 +273,7 @@ input {
         justify-content: flex-start;
         height: 12rem;
         gap: 1rem;
+        text-align: center;
     }
 
     .slider-wrapper {
