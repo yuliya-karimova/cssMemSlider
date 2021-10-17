@@ -269,7 +269,6 @@ input {
 
     .slider-bottom-container {
         flex-direction: column;
-        text-align: center;
         align-items: center;
         justify-content: flex-start;
         height: 12rem;
@@ -303,9 +302,5 @@ input {
 
     .top {
         background-size: 300% auto;
-    }
-
-    .slider-bottom-container {
-        height: 14rem;
     }
 }
