@@ -304,4 +304,12 @@ input {
     .top {
         background-size: 300% auto;
     }
+
+    body {
+        font-size: 1.8em;
+    }
+
+    .slider-bottom-container {
+        height: 14rem;
+    }
 }
