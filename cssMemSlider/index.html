@@ -13,47 +13,56 @@
     <main class="main">
         <div class="top"></div>
         <div class="wrapper">
-            <div class="table"></div>
             <div class="slider-wrapper">
-                <div class="slider">
-                    <div class="slider-container">
-                        <div class="slider-inner-container">
-                            <img class="slide" src="img/0.gif" alt="photo">
-                            <img class="slide" src="img/1.jpg" alt="photo">
-                            <img class="slide" src="img/2.jpg" alt="photo">
-                            <img class="slide" src="img/3.jpg" alt="photo">
-                            <img class="slide" src="img/4.jpg" alt="photo">
-                            <img class="slide" src="img/5.jpg" alt="photo">
-                        </div>
-                    </div>
-                    <div class="slider-controls-container">
-                        <div class="text-container">
-                            <div class="text-inner-container">
-                                <p>Whatever doesn't kill you makes you nervous.</p>
-                                <p>Believe in yourself. And&nbsp;JavaScript.</p>
-                                <p>Code is like a joke. When you have to explain it, it's bad.</p>
-                                <p>Roses are #ff0000, violets are #0000ff, FrontEnd is awesome.</p>
-                                <p>What does a JavaScript developer have in his tea? Syntactic&nbsp;sugar.</p>
-                                <p>Why do JavaScripters wear glasses? Because they&nbsp;don't&nbsp;C#.</p>
+                <div class="slider-container">
+                    <div class="slider">
+                        <input type="radio" name="slider" id="slide1" checked>
+                        <input type="radio" name="slider" id="slide2">
+                        <input type="radio" name="slider" id="slide3">
+                        <input type="radio" name="slider" id="slide4">
+                        <input type="radio" name="slider" id="slide5">
+                    
+                        <div class="slider-images-container">
+                            <div class="slider-images-inner-container">
+                                <img class="slide-img" src="img/0.gif" alt="photo">
+                                <img class="slide-img" src="img/1.jpg" alt="photo">
+                                <img class="slide-img" src="img/2.jpg" alt="photo">
+                                <img class="slide-img" src="img/3.jpg" alt="photo">
+                                <img class="slide-img" src="img/4.jpg" alt="photo">
                             </div>
                         </div>
-                        <div class="dots-container">
-                            <div class="dot active"><div class="pointer"></div></div>
-                            <div class="dot"><div class="pointer"></div></div>
-                            <div class="dot"><div class="pointer"></div></div>
-                            <div class="dot"><div class="pointer"></div></div>
-                            <div class="dot"><div class="pointer"></div></div>
-                            <div class="dot"><div class="pointer"></div></div>
+    
+                        <div class="slider-bottom-container">
+                            <div class="slider-controls-container">
+                                <label for="slide1" class="slider-dot-label" id="dot1">
+                                    <div class="point"></div>
+                                </label>
+                                <label for="slide2" class="slider-dot-label" id="dot2">
+                                    <div class="point"></div>
+                                </label>
+                                <label for="slide3" class="slider-dot-label" id="dot3">
+                                    <div class="point"></div>
+                                </label>
+                                <label for="slide4" class="slider-dot-label" id="dot4">
+                                    <div class="point"></div>
+                                </label>
+                                <label for="slide5" class="slider-dot-label" id="dot5">
+                                    <div class="point"></div>
+                                </label>
+                            </div>
+                            <div class="slider-text-container">
+                                <p class="slide-text">Whatever doesn't kill you makes you nervous.</p>
+                                <p class="slide-text">Believe in yourself. And&nbsp;JavaScript.</p>
+                                <p class="slide-text">Code is like a joke. When you have to explain it, it's bad.</p>
+                                <p class="slide-text">Roses are #ff0000, violets are #0000ff, FrontEnd is awesome.</p>
+                                <p class="slide-text">Why do JavaScripters wear glasses? Because they&nbsp;don't&nbsp;C#.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="dog">
-                <div class="eye"></div>
-                <div class="eye"></div>
-            </div>
+            <div class="pictures"></div>
         </div>
     </main>
-    <script src="script.js"></script>
 </body>
 </html>

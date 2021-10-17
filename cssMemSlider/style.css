@@ -39,6 +39,10 @@ body {
     height: 100%;
 }
 
+input {
+    display: none;
+}
+
 .top {
     flex-shrink: 0;
     width: 100%;
@@ -53,7 +57,7 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-grow: 1;
     border: 0.2rem solid #000000;
     border-top: 0;
@@ -64,6 +68,14 @@ body {
     justify-content: center;
     align-items: center;
     width: 45%;
+    z-index: 1;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
 }
 
 .slider {
@@ -71,62 +83,56 @@ body {
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    overflow: hidden;
 }
 
-.slider-container {
+.slider-images-container {
     overflow: hidden;
     border-radius: 1rem;
 }
 
-.slider-inner-container {
-    position: relative;
-    top: 0;
-    left: 0;
+.slider-images-inner-container {
     display: flex;
-    width: 700%;
-    transition: all 0.5s;
+    width: 500%;
+    transition: transform 0.5s;
 }
 
-.slide {
-    display: block;
-    width: calc(100% / 7);
-    height: 100%;
+.slide-img {
+    width: 20%;
 }
 
-.slider-controls-container {
+.slider-bottom-container {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 2rem;
     width: 100%;
+    height: 10rem;
     padding: 2rem 0 2rem;
     background-color: #ffc95b;
     overflow: hidden;
+
 }
 
-.text-container {
-    width: 100%;
-    overflow-x: hidden;
-}
-
-.text-inner-container {
-    position: relative;
-    top: 0;
-    left: 0;
+.slider-text-container {
     display: flex;
-    width: 700%;
-    transition: all 0.5s;
-}
-
-.text-inner-container p {
-    width: calc(100% / 7);
+    flex-direction: column;
+    width: 100%;
     padding-top: 0.3rem;
 }
 
-.dots-container {
+.slide-text {
+    width: 100%;
+    display: none;
+}
+
+
+.slider-controls-container {
     display: flex;
 }
 
-.dots-container > .dot {
+.slider-dot-label {
     width: 2.4rem;
     height: 2.4rem;
     cursor: pointer;
@@ -135,74 +141,107 @@ body {
     align-items: center;
 }
 
-.pointer {
+.point {
     width: 1.2rem;
     height: 1.2rem;
     border: 0.2rem solid;
     border-color: #000000;
     border-radius: 50%;
+    transition: all 0.5s;
 }
 
-.dot.active .pointer{
-    background-color: #c54123;
+.slider-dot-label:hover .point {
     border-color: #c54123;
     transition: all 0.2s;
 }
 
-.dot:hover .pointer {
+.slider-dot-label:active .point {
+    background-color: #c54123;
     border-color: #c54123;
-    transition: 0.2s;
+    transition: all 0.2s;
+    transform: scale(1.5)
 }
 
-.table {
-    flex-shrink: 0;
-    width: 17rem;
-    height: 17rem;
-    margin-top: auto;
-    background: url('img/table.png') bottom left / contain no-repeat;
+#slide1:checked ~ .slider-bottom-container .slider-controls-container #dot1 .point,
+#slide2:checked ~ .slider-bottom-container .slider-controls-container #dot2 .point,
+#slide3:checked ~ .slider-bottom-container .slider-controls-container #dot3 .point,
+#slide4:checked ~ .slider-bottom-container .slider-controls-container #dot4 .point,
+#slide5:checked ~ .slider-bottom-container .slider-controls-container #dot5 .point {
+    background-color: #c54123;
+    border-color: #c54123;
 }
 
-.dog {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    align-self: end;
-    width: 17rem;
-    height: 17rem;
-    margin-top: auto;
-    background: url(img/dog.png) bottom right / contain no-repeat;
-}
-
-.eye {
-    position: relative;
-    border-radius: 50%;
-}
-
-.eye:first-child {
-    width: 2.3rem;
-    height: 2.3rem;
-    top: 1rem;
-    left: 2.8rem;
-}
-
-.eye:last-child {
-    width: 2.6rem;
-    height: 2.6rem;
-    top: 1.6rem;
-    left: 2.8rem;
-}
-
-.eye:after {
-    content: " ";
-    top: 0;
+.pictures {
+    position: fixed;
+    bottom: 0;
     left: 0;
-    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    justify-content: space-between;
+    width: 100%;
+    height: 17rem;
+    background: url('img/table.png') bottom left / contain no-repeat, url(img/dog.png) bottom right / contain no-repeat;
+    z-index: -1;
+}
+
+/* image animation */
+
+#slide1:checked ~ .slider-images-container .slider-images-inner-container {
+    transform: translateX(0);
+}
+
+#slide2:checked ~ .slider-images-container .slider-images-inner-container {
+    transform: translateX(-20%);
+}
+
+#slide3:checked ~ .slider-images-container .slider-images-inner-container {
+    transform: translateX(-40%);
+}
+
+#slide4:checked ~ .slider-images-container .slider-images-inner-container {
+    transform: translateX(-60%);
+}
+
+#slide5:checked ~ .slider-images-container .slider-images-inner-container {
+    transform: translateX(-80%);
+}
+
+/* text animation */
+
+#slide1:checked ~ .slider-bottom-container .slide-text:nth-child(1) {
     display: block;
-    width: 1.8rem;
-    height: 1.8rem;
-    background: #171312;
-    border-radius: 50%;
+    animation: 0.5s ease-in-out show-text;
+}
+
+#slide2:checked ~ .slider-bottom-container .slide-text:nth-child(2) {
+    display: block;
+    animation: 0.5s ease-in-out show-text;
+}
+
+#slide3:checked ~ .slider-bottom-container .slide-text:nth-child(3) {
+    display: block;
+    animation: 0.5s ease-in-out show-text;
+}
+
+#slide4:checked ~ .slider-bottom-container .slide-text:nth-child(4) {
+    display: block;
+    animation: 0.5s ease-in-out show-text;
+}
+
+#slide5:checked ~ .slider-bottom-container .slide-text:nth-child(5) {
+    display: block;
+    animation: 0.5s ease-in-out show-text;
+}
+
+@keyframes show-text {
+    from {
+        opacity: 0;
+        transform: translateX(-1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 @media (max-width: 1280px) {
@@ -224,14 +263,16 @@ body {
 }
 
 @media (max-width: 980px) {
-    .slider-controls-container {
-        flex-direction: column-reverse;
-        text-align: center;
-        align-items: center;
-    }
-
     .wrapper {
         flex-direction: column;
+    }
+
+    .slider-bottom-container {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: flex-start;
+        height: 12rem;
     }
 
     .slider-wrapper {
@@ -247,14 +288,22 @@ body {
     .top {
         background-size: 150% auto;
     }
+    
+    .pictures {
+        position: relative;
+    }
 }
 
 @media (max-width: 420px) {
+    html {
+        font-size: 0.6em;
+    }
+
     .top {
         background-size: 300% auto;
     }
 
     body {
-        font-size: 1.4em;
+        font-size: 1.6em;
     }
 }
